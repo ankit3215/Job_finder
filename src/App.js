@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Signup from "./pages/Signup";
+import routes from "./common/routes";
+import { Alert } from "@material-ui/lab";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useLayoutEffect } from "react";
+import { hideAlert } from "./redux/actionCreators/alertActions";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
+import { setUserData } from "./redux/actionCreators/authActions";
 
-function App() {
+const App = () => {
+  const alert = useSelector(state => state.alert);
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    setUserData(dispatch);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if(alert.isRequired){
+          hideAlert(dispatch);
+      }
+    }, 2000)
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {alert.isRequired &&
+        <Alert variant="filled" severity={alert.alertType} style={{ width: '20%', position: "absolute", "right": '8%', top: '5%' }}>
+          {alert.message}
+        </Alert>
+      }
+
+    <Router>
+      <Switch>
+          <PrivateRoute exact path={routes.root} component={Dashboard} />
+
+          <PublicRoute path={routes.login} component={Login} restricted={true}  />
+
+          <PublicRoute path={routes.signup} component={Signup} restricted={true} />
+
+      </Switch>
+    </Router>
+    </>
   );
 }
 
