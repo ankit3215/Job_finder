@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -9,19 +9,17 @@ import { useEffect, useLayoutEffect } from "react";
 import { hideAlert } from "./redux/actionCreators/alertActions";
 import PublicRoute from "./components/PublicRoute";
 import { setUserData } from "./redux/actionCreators/authActions";
-import Nav from "./pages/Nav";
 import RoleBasedRoute from "./components/RoleBasedRoute";
 import EmployerBoard from "./pages/EmployerBoard";
 import DashboardMain from "./components/dashboardMain";
 
 const App = () => {
   const alert = useSelector((state) => state.alert);
-  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     setUserData(dispatch);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,6 +47,7 @@ const App = () => {
 
       <Router>
         <Switch>
+        <Route exact path='/' component={Login} />
           <RoleBasedRoute
             path="/dashboard"
             component={DashboardMain}
@@ -61,12 +60,12 @@ const App = () => {
           />
 
           <PublicRoute
-            path={routes.login}
+            path="/login"
             restricted={true}
             component={Login}
           />
 
-          <PublicRoute path="/Nav" component={Nav} />
+
 
           <PublicRoute
             path={routes.signup}
