@@ -1,0 +1,10 @@
+.login{
+    background-color: whitesmoke;
+}
+.login1{
+    background: url("https://i.pinimg.com/originals/ff/76/cc/ff76ccb49a720f21d789969559352707.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

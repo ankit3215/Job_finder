@@ -5,11 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FFEEDB;
+  background: hsl(143, 100%, 93%);
 }
 
 body,html{
   height: 100%;
+  background-color: white;
 }
 
 code {

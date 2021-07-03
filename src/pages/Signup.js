@@ -6,71 +6,76 @@ import RoleForm from "../components/RoleForm";
 import { signUpWithGoogle } from "../redux/actionCreators/authActions";
 import { useDispatch } from "react-redux";
 import { errorAlert } from "../redux/actionCreators/alertActions";
+import "./signup.css";
+
 const Signup = () => {
-    const [selectRole, setSelectRole] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const dispatch = useDispatch();
+  const [selectRole, setSelectRole] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-    const handleGoogleSignup = async () => {
-        setLoading(true);
+  const handleGoogleSignup = async () => {
+    setLoading(true);
 
-        try {
-            await signUpWithGoogle(dispatch);
-            setSelectRole(true);
-        } catch (error) {
-            switch (error.code) {
-                case 'auth/email-already-exist':
-                    errorAlert(dispatch, "Email already in use. Try logging in")
-                    break;
-                case 'auth/popup-closed-by-user' :
-                    errorAlert(dispatch, "Connection closed");
-                    break;
-                default:
-                    console.log(error);
-                    break;
-            }
-        }
-        setLoading(false);
-
+    try {
+      await signUpWithGoogle(dispatch);
+      setSelectRole(true);
+    } catch (error) {
+      switch (error.code) {
+        case "auth/email-already-exist":
+          errorAlert(dispatch, "Email already in use. Try logging in");
+          break;
+        case "auth/popup-closed-by-user":
+          errorAlert(dispatch, "Connection closed");
+          break;
+        default:
+          console.log(error);
+          break;
+      }
     }
+    setLoading(false);
+  };
 
-    return (
-        <>
-            <FormOuter>
-                {selectRole ? (
-                    <RoleForm />
-                ) : (
-                    <SignupForm setSelectRole={setSelectRole}/>
-                )
+  return (
+    <div>
+      <div className="signup1">
+        <FormOuter>
+          <div className="signup">
+            {selectRole ? (
+              <RoleForm />
+            ) : (
+              <SignupForm setSelectRole={setSelectRole} />
+            )}
 
-                }
-              
-                {
-                    !selectRole  && 
-                    <>
-                        <br />
-                        <br />
-                        <Grid container spacing={1} justify="center">
-                            <Grid item>
-                                {
-                                    loading ?
-                                        <CircularProgress size={25} thickness={5} color="primary" />
-                                        :
-                                        <Button onClick={handleGoogleSignup}>
-                                        <img src="./google-icon.svg" alt="" height="50" />
-
-                                        </Button>
-                                }
-
-                            </Grid>
-                        </Grid>
-                    </>
-                    
-                }
-                
-            </FormOuter>
-        </>
-    )
-}
+            {!selectRole && (
+              <div>
+                <br />
+                <br />
+                <Grid container spacing={1} justify="center">
+                  <Grid item>
+                    {loading ? (
+                      <CircularProgress
+                        size={25}
+                        thickness={5}
+                        color="primary"
+                      />
+                    ) : (
+                      <Button
+                        onClick={handleGoogleSignup}
+                        variant="outlined"
+                        color="secondary"
+                      >
+                        Sign up With Google
+                      </Button>
+                    )}
+                  </Grid>
+                </Grid>
+              </div>
+            )}
+          </div>
+        </FormOuter>
+      </div>
+    </div>
+  );
+};
 
 export default memo(Signup);

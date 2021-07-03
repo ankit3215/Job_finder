@@ -14,7 +14,7 @@ import { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { updateUser } from "../redux/actionCreators/authActions";
-import { userRegisteredAlert } from "../redux/actionCreators/alertActions";
+import { successAlert } from "../redux/actionCreators/alertActions";
 const styles = makeStyles(() => ({
    
     button: {
@@ -41,7 +41,7 @@ const RoleForm = () => {
         setLoading(true);
 
         await updateUser(auth.userInfo.userId, { role });
-        userRegisteredAlert(dispatch, "Registered Successfully", "success");
+        successAlert(dispatch, "Registered Successfully");
         
         setLoading(false);
 
@@ -49,7 +49,7 @@ const RoleForm = () => {
     }
 
     return ( 
-        <>
+        <div>
             <Typography variant="h5" className={classes.heading} align="center" color="initial" gutterBottom={true}>
                 Select Role
             </Typography>
@@ -60,7 +60,7 @@ const RoleForm = () => {
                     <RadioGroup aria-label="Role" name="userRole" value={role} onChange={(e) => setRole(e.target.value)}>
                         <Grid container spacing={1}>
                             <FormControlLabel value="freelancer" control={<Radio />} label="Freelancer" />
-                            <FormControlLabel value="employer" control={<Radio />} label="Employer" />
+                            <FormControlLabel value="company" control={<Radio />} label="company" />
                         </Grid>
                     </RadioGroup>
                 </FormControl>
@@ -71,12 +71,12 @@ const RoleForm = () => {
                         <CircularProgress size={25} thickness={5} color="primary" style={{ padding: '0.85em' }} />
                     </Typography>
                 ) : (
-                    <Button type="submit" variant="contained" className={classes.button} disableElevation={true} size="large" fullWidth={true} color="primary">
+                    <Button type="submit" variant="outlined" className={classes.button} disableElevation={true} size="large" fullWidth={true} color="primary">
                        Submit
                     </Button>
                 )}
             </form> 
-        </>
+        </div>
      );
 }
  

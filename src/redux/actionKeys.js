@@ -5,6 +5,6 @@ export const LOGIN_SET_USER = "LOGIN_SET_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 
 // Alter keys
-export const USER_REGISTERED_ALERT = "USER_REGISTERED_ALERT";
+export const SUCCESS_ALERT = "SUCCESS_ALERT";
 export const ERROR_ALERT = "ERROR_ALERT";
 export const HIDE_ALERT = "HIDE_ALERT";

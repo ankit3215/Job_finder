@@ -10,7 +10,7 @@ const alertReducer = (state = initialState, action) => {
     const {type, payload} = action;
 
     switch (type){
-        case actionKeys.USER_REGISTERED_ALERT : 
+        case actionKeys.SUCCESS_ALERT : 
             return {
                 ...state,
                 isRequired : true,

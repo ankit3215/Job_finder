@@ -1,11 +1,11 @@
 import * as actionKeys from "../actionKeys";
 
-export const userRegisteredAlert = (dispatch, message, alertType) => {
+export const successAlert = (dispatch, message) => {
     dispatch({
-        type: actionKeys.USER_REGISTERED_ALERT,
+        type: actionKeys.SUCCESS_ALERT,
         payload : {
             message : message,
-            alertType : alertType
+            alertType : "success"
         }
     });
 }
@@ -25,3 +25,4 @@ export const hideAlert = (dispatch) => {
         type : actionKeys.HIDE_ALERT,
     })
 }
+

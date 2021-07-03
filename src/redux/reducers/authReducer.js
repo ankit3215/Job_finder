@@ -4,8 +4,10 @@ const initialState = {
     authInfo : {},
     isLoggedIn : false,
 };
+
 const AuthReducer = (state = initialState, action) => {
     const {type, payload} = action;
+
         switch(type){
             case actionKeys.LOGIN_USER :
                 return {

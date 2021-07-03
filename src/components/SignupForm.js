@@ -16,7 +16,6 @@ import { useDispatch } from "react-redux";
 const styles = makeStyles((theme) => ({
 
     link: {
-        color: theme.palette.secondary.main,
         textDecoration: "none",
     },
     button: {
@@ -89,20 +88,20 @@ const SignupForm = ({setSelectRole}) => {
     }
 
     return ( 
-        <>
+        <div>
             <Typography variant="h5" className={classes.heading} align="center" color="initial" gutterBottom={true}>
                 Signup
             </Typography>
             <form onSubmit={handleSubmit}>
                 <br />
-                <FormControl fullWidth={true} margin="normal">
+                <FormControl margin="normal">
                     <TextField label="Full Name" inputRef={nameRef} error={nameErr ? true : false} helperText={nameErr} type="text" color="secondary" />
                 </FormControl>
-                <FormControl fullWidth={true} margin="normal">
+                <FormControl  margin="normal">
                     <TextField label="Email" inputRef={emailRef} error={emailErr ? true : false} helperText={emailErr}  color="secondary" />
                     <FormHelperText></FormHelperText>
                 </FormControl>
-                <FormControl fullWidth={true} margin="normal">
+                <FormControl margin="normal">
                     <TextField label="Phone" inputRef={phoneRef} error={phoneErr ? true : false} helperText={phoneErr} color="secondary" />
                     <FormHelperText></FormHelperText>
                 </FormControl>
@@ -125,7 +124,7 @@ const SignupForm = ({setSelectRole}) => {
                 Already have an account?
                 <Link to='/login' className={classes.link}> Login</Link>
             </Typography>
-        </>
+        </div>
      );
 }
  

@@ -1,6 +1,7 @@
 import firebase from "../firebase";
 
 const db = firebase.firestore();
+
 export const addDocument = async (collection, data) => {
     const newDoc = await db.collection(collection).add(data);
     return newDoc;
@@ -24,3 +25,4 @@ export const searchForAccessToken = async (token) => {
 export const removeUserAccessToken = async (userId) => {
     return await db.collection('userInfo').doc(userId).update({"accessToken" : ""});
 }
+export default db;

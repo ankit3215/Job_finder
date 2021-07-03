@@ -1,13 +1,17 @@
-import firebase from "firebase"
+import firebase from "firebase";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBuaYo7tSog0hMiWIbH23upY8C5hyxFeGI",
-    authDomain: "joblook-ea2d7.firebaseapp.com",
-    projectId: "joblook-ea2d7",
-    storageBucket: "joblook-ea2d7.appspot.com",
-    messagingSenderId: "791280800595",
-    appId: "1:791280800595:web:f79762011bc9596b9ec7a6"
+
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDv0vsnf6yIQp3R4QBs6n5TQl5zXSGDW7I",
+  authDomain: "freelance-d0638.firebaseapp.com",
+  projectId: "freelance-d0638",
+  storageBucket: "freelance-d0638.appspot.com",
+  messagingSenderId: "406112413282",
+  appId: "1:406112413282:web:1221273148b5d1c66bd33b"
 };
+
 
 
 firebase.initializeApp(firebaseConfig);

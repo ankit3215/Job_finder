@@ -8,7 +8,7 @@ import {
 
 const styles = makeStyles(() => ({
     paper: {
-        padding: '3em 4em 4em',
+        padding: '3em 8em 8em',
         width: '35%',
         background: '#FFD8CC'
     },

@@ -4,7 +4,7 @@ import {combineReducers} from "redux";
 
 const reducer = combineReducers({
     auth : authReducer,
-    alert: alertReducer
+    alert: alertReducer,
 })
 
 export default reducer;

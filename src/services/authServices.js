@@ -9,7 +9,6 @@ export const authAddUser = async (email, password) => {
     return userCredentials;
 }
 
-
 export const authVerifyUser = async (email, password) => {
     const auth = firebase.auth();
     const userCredentials = await auth.signInWithEmailAndPassword(email, password).catch(err => {
@@ -35,6 +34,11 @@ export const isTokenAvailable = () => {
     return accessToken;
 }
 
+export const resetPasswordRequest = async (email) => {
+   return await firebase.auth().sendPasswordResetEmail(email);
+}
+
+
 export const checkUserStatus = async () => {
     
     const accessToken= isTokenAvailable();
@@ -58,6 +62,8 @@ export const setAccessToken = async (docId, accessToken) => {
     localStorage.setItem("accessToken", accessToken);
 
 }
+
+
 
 export const removeAuthToken = () => {
     
