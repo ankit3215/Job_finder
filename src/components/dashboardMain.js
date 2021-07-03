@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: "gold"
+    background: "#283747"
   },
   drawer: {
     width: drawerWidth,
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: "silver"
+    background: "#203647"
   },
   drawerContainer: {
     overflow: "auto",
@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
   link:{
       textDecoration: 'none',
       color: theme.palette.text.primary
-  }
+  },
+  
 }));
 
 const DashboardMain = () => {
@@ -74,6 +75,13 @@ const DashboardMain = () => {
           <Typography variant="h9" noWrap>
             Freelancer
           </Typography>
+          <br />
+          <br />
+          <br />
+          <br />
+          <Button  onClick={handleClick} variant="outlined" color="primary">
+          Logout
+      </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -108,9 +116,7 @@ const DashboardMain = () => {
             </Link>
           </List>
           <Divider />
-          <Button onClick={handleClick} variant="outlined" color="primary">
-              Logout
-          </Button>
+         
         </div>
       </Drawer>
       {console.log(auth)}
