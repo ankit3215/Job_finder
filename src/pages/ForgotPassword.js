@@ -132,8 +132,14 @@ import {
                 Sign up
               </Link>
             </Typography>
-    
-          </div>
+    <Typography>Please Enter Your Correct E-Mail Id, as we will be sending you the link for changing your current Password</Typography>
+<br />
+<br />
+<br />
+<br />
+
+
+    </div>
         </FormOuter>
       </div>
     );
