@@ -8,9 +8,9 @@ import {
 
 const styles = makeStyles(() => ({
     paper: {
-        padding: '3em 8em 8em',
+        padding: '3em 5em 10em',
         width: '35%',
-        background: '#FFD8CC'
+        background: '#203647'
     },
     container: {
         height: '100%',
