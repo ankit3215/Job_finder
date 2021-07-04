@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: "#10E7DC"
+    background: "#202020"
   },
   drawerContainer: {
     overflow: "auto",
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    
   },
   link: {
     textDecoration: "none",
@@ -76,6 +77,8 @@ const EmployerBoard = () => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <br />
+      <br />
       <Drawer
         className={classes.drawer}
         variant="permanent"
