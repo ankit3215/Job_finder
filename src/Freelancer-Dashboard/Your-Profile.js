@@ -10,9 +10,6 @@ import { uploadFile } from "../services/fireStorage";
 import "react-toastify/dist/ReactToastify.css";
 import db from "../services/firestoreServices";
 
-
-
-
 const styles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
@@ -50,6 +47,7 @@ function Profile(props) {
   let states = "";
   let countries = "";
   let dobs = "";
+  console.log(id)
 
   useEffect(() => {
     setName(names);
@@ -86,46 +84,43 @@ function Profile(props) {
   };
 
   const onFileChange = async (e) => {
-    
     const file = e.target.files[0];
-    if(!file) return;
+    if (!file) return;
 
     const name = file.name;
     const fileUrl = await uploadFile(file, `profilePic/${name}`);
 
-    
-
     const doc = db.collection("userInfo").doc(userId.toString());
 
     await doc
-    .update({
-      imageUrl: fileUrl,
-    })
-    .then(() => {
-      setFileUrl(fileUrl);
-      console.log("url updated in database");
-    })
-    .catch(() => {
-      console.log("some error occured");
-    });
+      .update({
+        imageUrl: fileUrl,
+      })
+      .then(() => {
+        setFileUrl(fileUrl);
+        console.log("url updated in database");
+      })
+      .catch(() => {
+        console.log("some error occured");
+      });
 
     await doc.get().then((docRef) => {
       setFileUrl1(docRef.data().url);
     });
-};
+  };
   return (
     <>
-    <Center>
-    <Avatar  className={classes.large}
-    src = {fileUrl || auth.userInfo.imageUrl}
+      <Center>
+        <Avatar
+          className={classes.large}
+          src={fileUrl || auth.userInfo.imageUrl}
+        />
+      </Center>
 
-  />    
-    </Center>
-   
       <Center>
         <form onSubmit={submitHandler}>
           <Typography variant="h3">ᴜᴘᴅᴀᴛᴇ ʏᴏᴜʀ ᴘʀᴏꜰɪʟᴇ</Typography>
-          
+
           <Typography>Email</Typography>
           <Input
             type="email"

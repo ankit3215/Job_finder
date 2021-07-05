@@ -118,7 +118,7 @@ function Profile2(props) {
 
   /></Center>
       <Center>
-        <form posi onSubmit={submitHandler}>
+        <form onSubmit={submitHandler}>
           <Typography variant="h3">ᴜᴘᴅᴀᴛᴇ ʏᴏᴜʀ ᴘʀᴏꜰɪʟᴇ</Typography>
           
           <Typography>Email</Typography>
