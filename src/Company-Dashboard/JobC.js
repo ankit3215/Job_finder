@@ -62,7 +62,7 @@ const JobC = () => {
         onChange={(e) => setLocation(e.target.value)}
       />
       <br/>
-      <br/>
+      <br/>/
     
       {filteredJobs && (
         <TableContainer component={Paper}>

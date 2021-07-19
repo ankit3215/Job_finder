@@ -77,7 +77,7 @@ const RoleForm = () => {
               <br />
               <br />
               <br />
-              <FormControlLabel
+               <FormControlLabel
                 value="company"
                 control={<Radio />}
                 label="As a Company"

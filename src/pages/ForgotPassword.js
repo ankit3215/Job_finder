@@ -15,8 +15,6 @@ import {
   import {resetPassword} from "../redux/actionCreators/authActions";
   import "./login.css";
   
-  
-  
   const styles = makeStyles((theme) => ({
     heading: {
       fontWeight: 500,
